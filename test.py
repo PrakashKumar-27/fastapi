@@ -3,20 +3,6 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-class SimpleRequest(BaseModel):
-    a: int
-    b: int
-
-@app.get("/add")
-def add(a: int, b: int):
-    return a + b
-
-
-@app.post("/multiply")
-def multiply(data: SimpleRequest):
-    return data.a * data.b
-
-
 user_db = {
     1: {"name": "Alice", "age": 30},
     2: {"name": "Bob", "age": 25},
